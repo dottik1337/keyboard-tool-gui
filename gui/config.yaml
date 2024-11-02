@@ -8,7 +8,7 @@ layers:
         - ctrl-shift-d
       - - x
         - mclick
-      - - x
+      - - calculator
         - x
     knobs:
       - ccw: wheelup

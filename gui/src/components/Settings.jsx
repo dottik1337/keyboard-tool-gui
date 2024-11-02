@@ -138,10 +138,10 @@ function MouseSettings() {
         <p>Current Selection: <span>{key}</span></p>
       </div>
       <div className="mouse-buttons-selection">
-        <button onClick={() => setKey('click')}>Left Click</button>
-        <button onClick={() => setKey('rclick')}>Right Click</button>
-        <button onClick={() => setKey('wheeldown')}>Scroll Down</button>
-        <button onClick={() => setKey('wheelup')}>Scroll Up</button>
+        <button onClick={() => setKey('click')}>Left</button>
+        <button onClick={() => setKey('rclick')}>Right</button>
+        <button onClick={() => setKey('wheeldown')}>Down</button>
+        <button onClick={() => setKey('wheelup')}>Up</button>
         <button onClick={() => setKey('mclick')}>Middle Click</button>
       </div>
 
