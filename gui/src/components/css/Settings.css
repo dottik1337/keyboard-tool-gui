@@ -1,3 +1,12 @@
+:root {
+    --button-neutral: cornflowerblue;
+    --button-neutral-hover: rgb(100, 100, 255);
+    --button-confirm: rgb(129, 228, 172);
+    --button-confirm-hover: rgb(31, 211, 109);
+    --button-back: rgb(255, 100, 100);
+    --button-back-hover: rgb(255, 61, 61);
+}
+
 .settings {
     background-color: rgb(255, 175, 175);
     padding: 30px;
@@ -17,6 +26,15 @@
     
 }
 
+.settings.settings-mouse {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
 .settings button {
     border: none;
     margin: 10px auto;
@@ -31,7 +49,7 @@
 }
 
 .settings button:hover {
-    background-color: cornflowerblue;
+    background-color: var(--button-neutral);
     outline: 3px solid black;
     outline-offset: -3px;
 }
@@ -58,6 +76,47 @@
     justify-items: center;
 }
 
+.current-selection {
+    display: grid;
+    gap: 10px;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+.current-selection h1 {
+    margin: 0;
+}
+
+.current-selection p {
+    margin: 0;
+}
+
+.current-selection span {
+    color: var(--button-neutral-hover);
+    font-weight: bold;
+}
+
+.mouse-buttons-selection {
+    display: grid;
+    gap: 10px;
+    justify-content: space-between;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.mouse-buttons-selection button {
+    margin: 0;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.mouse-buttons-selection button:last-child {
+    grid-column: span 2;
+}
+
 .lower-buttons {
     display: flex;
     gap: 10px;
@@ -66,11 +125,11 @@
 }
 
 .confirm-button {
-    background-color: rgb(129, 228, 172);
+    background-color: var(--button-confirm)
 }
 
 button.confirm-button:hover {
-    background-color: rgb(31, 211, 109);
+    background-color: var(--button-confirm-hover);
 }
 
 button:disabled {
@@ -78,7 +137,7 @@ button:disabled {
 }
 
 button:hover:disabled {
-    background-color: rgb(129, 228, 172);
+    background-color: var(--button-confirm);
     outline: none;
 }
 
@@ -88,15 +147,15 @@ button:active:disabled {
 }
 
 .back-button {
-    background-color: rgb(255, 100, 100);
+    background-color: var(--button-back);
 }
 
 button.back-button:hover {
-    background-color: rgb(255, 61, 61);
+    background-color: var(--button-back-hover);
 }
 
 button.neutral-button:hover {
-    background-color: cornflowerblue;
+    background-color: var(--button-neutral);
 }
 
 button.neutral-button {

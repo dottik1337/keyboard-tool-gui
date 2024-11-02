@@ -31,15 +31,19 @@ function MainSettings() {
 
   return (
     <div className="settings settings-main">
-      <h1>Current bind:</h1>
-      <p>{currBind ? currBind : 'None'}</p>
+      <div className="current-selection">
+        <h1>Current bind:</h1>
+        <p><span>{currBind ? currBind : 'None'}</span></p>
+      </div>
 
       <button
         onClick={() => settingsContext.setSettingWindow(<KeyboardSettings />)}
         id="keyboard-setting-btn">
         Keyboard
       </button>
-      <button id="mouse-setting-btn">Mouse</button>
+      <button
+        onClick={() => settingsContext.setSettingWindow(<MouseSettings />)}
+        id="mouse-setting-btn">Mouse</button>
       <button id="media-setting-btn">Media</button>
     </div>
   );
@@ -99,13 +103,36 @@ function KeyboardSettings() {
         )}
       </KeyboardSettingsContext.Provider>
       <h1>Keyboard</h1>
-      <div className="key-listen">
+      <div className="current-selection">
         <h2>Press any key to bind!</h2>
-        <p>Key pressed: {key}</p>
+        <p>Key pressed: <span>{key}</span></p>
       </div>
       <button onClick={() => setIsKeyboardOpen(true)} className="neutral-button">
         <FontAwesomeIcon icon={faKeyboard} />
       </button>
+      <LowerSettingsButtons bindValue={key}></LowerSettingsButtons>
+    </div>
+  );
+}
+
+function MouseSettings() {
+  const [key, setKey] = useState('');
+
+
+  return (
+    <div className="settings settings-mouse">
+      <div className="current-selection">
+        <h1>Mouse</h1>
+        <p>Current Selection: <span>{key}</span></p>
+      </div>
+      <div className="mouse-buttons-selection">
+        <button onClick={() => setKey('click')}>Left Click</button>
+        <button onClick={() => setKey('rclick')}>Right Click</button>
+        <button onClick={() => setKey('wheeldown')}>Scroll Down</button>
+        <button onClick={() => setKey('wheelup')}>Scroll Up</button>
+        <button onClick={() => setKey('mclick')}>Middle Click</button>
+      </div>
+
       <LowerSettingsButtons bindValue={key}></LowerSettingsButtons>
     </div>
   );
