@@ -18,3 +18,14 @@
     padding: 0;
     width: fit-content;
 }
+
+.verticalDiv {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn + button {
+    grid-row: 1;
+}

@@ -5,10 +5,10 @@ knobs: 1
 layers:
   - buttons:
       - - a
-        - ctrl-shift-d
+        - x
       - - x
-        - mclick
-      - - calculator
+        - x
+      - - x
         - x
     knobs:
       - ccw: wheelup

@@ -71,7 +71,7 @@ export default function Keyboard() {
     <div className='keyboard'>
       <div></div>
       <PlusMinus style={firstPlusMinus} clickPlus={clickPlusColumn} clickMinus={clickMinusColumn}/>
-      <PlusMinus style={secondPlusMinus} clickPlus={clickPlusRow} clickMinus={clickMinusRow}/>
+      <PlusMinus style={secondPlusMinus} vertical={true} clickPlus={clickPlusRow} clickMinus={clickMinusRow}/>
       <Keys rows={keyboard.rows} columns={keyboard.columns}/>
       <div></div>
       <Knobs knobs={keyboard.knobs} />
