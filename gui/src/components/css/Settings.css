@@ -117,6 +117,34 @@
     grid-column: span 2;
 }
 
+.settings-media {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+}
+
+.media-buttons-selection {
+    display: grid;
+    gap: 10px;
+    justify-content: space-between;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.media-buttons-selection svg{
+    color: rgb(29, 29, 29);
+}
+
+.media-buttons-selection button {
+    margin: 0;
+    padding: 10px 20px;
+    width: 100%;
+}
+
 .lower-buttons {
     display: flex;
     gap: 10px;

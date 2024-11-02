@@ -7,10 +7,10 @@ layers:
       - - a
         - ctrl-shift-d
       - - x
-        - o
+        - mclick
       - - x
         - x
     knobs:
       - ccw: wheelup
-        press: click
+        press: volumeup
         cw: wheeldown

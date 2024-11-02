@@ -10,6 +10,16 @@ import {
   faSquareCaretLeft,
   faSquareCheck,
   faKeyboard,
+  faPlay,
+  faPause,
+  faForwardStep,
+  faBackwardStep,
+  faVolumeHigh,
+  faVolumeLow,
+  faVolumeXmark,
+  faStar,
+  faCalculator,
+  faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import PCKeyboard from "./PCKeyboard.jsx";
 
@@ -44,7 +54,9 @@ function MainSettings() {
       <button
         onClick={() => settingsContext.setSettingWindow(<MouseSettings />)}
         id="mouse-setting-btn">Mouse</button>
-      <button id="media-setting-btn">Media</button>
+      <button
+      onClick={() => settingsContext.setSettingWindow(<MediaSettings />)}
+      id="media-setting-btn">Media</button>
     </div>
   );
 }
@@ -133,6 +145,32 @@ function MouseSettings() {
         <button onClick={() => setKey('mclick')}>Middle Click</button>
       </div>
 
+      <LowerSettingsButtons bindValue={key}></LowerSettingsButtons>
+    </div>
+  );
+}
+
+function MediaSettings() {
+  const [key, setKey] = useState('');
+
+  return (
+    <div className="settings settings-media">
+      <div className="current-selection">
+        <h1>Media</h1>
+        <p>Current Selection: <span>{key}</span></p>
+      </div>
+      <div className="media-buttons-selection">
+        <button onClick={() => setKey('play')}><FontAwesomeIcon icon={faPlay} /></button>
+        <button onClick={() => setKey('pause')}><FontAwesomeIcon icon={faPause} /></button>
+        <button onClick={() => setKey('next')}><FontAwesomeIcon icon={faForwardStep} /></button>
+        <button onClick={() => setKey('prev')}><FontAwesomeIcon icon={faBackwardStep} /></button>
+        <button onClick={() => setKey('volumeup')}><FontAwesomeIcon icon={faVolumeHigh} /></button>
+        <button onClick={() => setKey('volumedown')}><FontAwesomeIcon icon={faVolumeLow} /></button>
+        <button onClick={() => setKey('mute')}><FontAwesomeIcon icon={faVolumeXmark} /></button>
+        <button onClick={() => setKey('favorite')}><FontAwesomeIcon icon={faStar} /></button>
+        <button onClick={() => setKey('calculator')}><FontAwesomeIcon icon={faCalculator} /></button>
+        <button onClick={() => setKey('screenlock')}><FontAwesomeIcon icon={faLock} /></button>
+      </div>
       <LowerSettingsButtons bindValue={key}></LowerSettingsButtons>
     </div>
   );
