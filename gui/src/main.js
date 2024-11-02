@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path');
 const fs = require('fs').promises;
+const { exec } = require("child_process");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -67,4 +68,19 @@ ipcMain.on("write-file", async (event, data) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+ipcMain.handle("upload-to-keyboard", async (event, path) => {
+  exec(`ch57x-keyboard-tool upload ${path}`, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return false;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return false;
+    }
+    console.log(`stdout: ${stdout}`);
+    return true;
+  });
 });

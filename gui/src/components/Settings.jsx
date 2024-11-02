@@ -69,7 +69,7 @@ function LowerSettingsButtons(props) {
   const handleCommit = async() => {
 
     await fh.changeBind(keyboard.selectedKey, props.bindValue);
-    settingsContext.setSettingWindow(<SuccesWindow />);
+    settingsContext.setSettingWindow(<MainSettings />);
   };
   
   useEffect(() => {
@@ -176,15 +176,6 @@ function MediaSettings() {
   );
 }
 
-function SuccesWindow() {
-  return (
-    <div className="settings settings-succes">
-      <h1>Bind succesful!</h1>
-      <LowerSettingsButtons></LowerSettingsButtons>
-    </div>
-  );
-}
-
 export default function Settings() {
   const [settingWindow, setSettingWindow] = useState(<MainSettings />);
 
@@ -195,5 +186,4 @@ export default function Settings() {
       </SettingsWindowContext.Provider>
     </>
   );
-  //return (<KeyboardSettings />);
 }

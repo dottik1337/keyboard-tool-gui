@@ -1,3 +1,12 @@
+:root {
+  --button-neutral: cornflowerblue;
+  --button-neutral-hover: rgb(100, 100, 255);
+  --button-confirm: rgb(129, 228, 172);
+  --button-confirm-hover: rgb(31, 211, 109);
+  --button-back: rgb(255, 100, 100);
+  --button-back-hover: rgb(255, 61, 61);
+}
+
 html {
   overflow-y: hidden;
   overflow-x: hidden;
@@ -52,4 +61,40 @@ div .keyboard {
   border-color: cornflowerblue;
   outline: 3px solid cornflowerblue;
   outline-offset: -1px;
+}
+
+.commit-btn {
+  grid-row: 2;
+  grid-column: span 2;
+}
+
+.commit-btn button {
+  border: none;
+  margin: 10px auto;
+  display: block;
+  width: 100%;
+  padding: 20px 30px;
+  font-size: 2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+  transition: all 0.15s ease;
+  background-color: var(--button-neutral);
+  margin: 0;
+}
+
+.commit-btn button:hover {
+  background-color: var(--button-confirm-hover);
+  outline: 3px solid black;
+  outline-offset: -3px;
+}
+
+.commit-btn button:active {
+  filter: brightness(1.2);
+  transform: scale(0.97);
+}
+
+.commit-btn button:disabled {
+  color: white;
+  cursor: not-allowed;
 }

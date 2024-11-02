@@ -23,6 +23,8 @@ export default function App() {
     selectedKey: null, //type, x, y
     keySelection: keySelection
   });
+  const [uploadBtnText, setUploadBtnText] = useState('Upload to keyboard!');
+
   useEffect( () => {
     const handleClick = (event) => {
       let element = event.target;
@@ -38,8 +40,8 @@ export default function App() {
         clearActive();
         element.classList.add('active');
       }
-      else if (element.classList.contains('settings') || element.closest('.settings')) {
-          
+      else if (element.classList.contains('settings') || element.closest('.settings') || element.closest('.commit-btn')){
+        return;
       }
       else if (element === document.body || element.closest('.app')){
         clearActive();
@@ -59,15 +61,40 @@ export default function App() {
     
   },[]);
 
-
+  const handleUpload = (e) => {
+    const result = fh.uploadToKeyboard();
+    const button = e.target;
+    const TIMEOUT = 1000;
+    if (result){
+      setUploadBtnText('Uploaded!');
+      button.disabled = true;
+      button.style.backgroundColor = 'var(--button-confirm-hover)';
+      setTimeout(() => {
+        setUploadBtnText('Upload to keyboard!');
+        button.disabled = false;
+        button.style.backgroundColor = 'var(--button-neutral)';
+      }, TIMEOUT);
+    }
+    else {
+      setUploadBtnText('Upload failed!');
+      button.disabled = true;
+      button.style.backgroundColor = 'var(--button-back-hover)';
+      setTimeout(() => {
+        button.disabled = false;
+        button.style.backgroundColor = 'var(--button-neutral)';
+        setUploadBtnText('Upload to keyboard!');
+      }, TIMEOUT);
+    }
+  };
   return (
     <>
     <div className='app'>
       <KeyboardContext.Provider value={[keyboard, setKeyboard]}>
         <Keyboard />
-
         {keyboard.selectedKey !== null && <Settings key={keyboard.selectedKey.type + keyboard.selectedKey.x + keyboard.selectedKey.y}/>}
-        
+        <div className="commit-btn">
+          <button onClick={(e) => handleUpload(e)}>{uploadBtnText}</button>
+        </div>
       </KeyboardContext.Provider>
     </div>
     </>

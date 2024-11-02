@@ -170,4 +170,8 @@ export class FileHandler {
             console.error(e);
         }
     }
+
+    uploadToKeyboard(){
+        window.api.uploadToKeyboard(CONFIG_FILE);
+    }
 }

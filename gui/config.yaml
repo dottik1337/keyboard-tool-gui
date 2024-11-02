@@ -7,9 +7,9 @@ layers:
       - - a
         - x
       - - x
-        - x
+        - '0'
       - - x
-        - x
+        - calculator
     knobs:
       - ccw: wheelup
         press: volumeup
