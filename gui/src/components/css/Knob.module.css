@@ -1,0 +1,47 @@
+.knob {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgb(114,114,114);
+    background: linear-gradient(142deg, rgba(114,114,114,1) 55%, rgb(196, 196, 196) 100%);
+    border: solid 9px #555555;
+    grid-column: span 2;
+}
+.knob:hover {
+    filter: brightness(1.2);
+}
+
+.arrow {
+    color: #555555;
+    width: 30px;
+    height: 30px;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    filter: brightness(1.2);
+}
+
+.ccw {
+    margin-left: 0px;
+}
+
+.cw {
+    margin-left: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 5px;
+    justify-content: center;
+    align-items: center;
+}

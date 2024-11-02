@@ -1,0 +1,23 @@
+.keyboard_key {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 5px;
+    border: 9px solid #555555;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    background: rgb(114,114,114);
+    background: linear-gradient(142deg, rgba(114,114,114,1) 55%, rgb(196, 196, 196) 100%);
+
+    border-radius: 15px;
+}
+
+.keyboard_key:hover {
+    filter: brightness(1.2);
+}
+
+.keyboard_key:focus {
+    outline: none;
+}

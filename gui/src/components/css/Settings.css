@@ -1,0 +1,108 @@
+.settings {
+    background-color: rgb(255, 175, 175);
+    padding: 30px;
+    border-radius: 40px;
+}
+
+.settings h1 {
+    margin: 0;
+}
+
+.settings.settings-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.settings button {
+    border: none;
+    margin: 10px auto;
+    display: block;
+    width: 80%;
+    padding: 20px 30px;
+    font-size: 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    transition: all 0.15s ease;
+}
+
+.settings button:hover {
+    background-color: cornflowerblue;
+    outline: 3px solid black;
+    outline-offset: -3px;
+}
+
+.settings button:active {
+    filter: brightness(1.2);
+    transform: scale(0.97);
+}
+
+.settings.settings-keyboard {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.settings.settings-keyboard button {
+    align-self: baseline;
+}
+
+.key-listen {
+    justify-items: center;
+}
+
+.lower-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.confirm-button {
+    background-color: rgb(129, 228, 172);
+}
+
+button.confirm-button:hover {
+    background-color: rgb(31, 211, 109);
+}
+
+button:disabled {
+    filter: brightness(0.5);
+}
+
+button:hover:disabled {
+    background-color: rgb(129, 228, 172);
+    outline: none;
+}
+
+button:active:disabled {
+    filter: brightness(0.5);
+    transform: none;
+}
+
+.back-button {
+    background-color: rgb(255, 100, 100);
+}
+
+button.back-button:hover {
+    background-color: rgb(255, 61, 61);
+}
+
+button.neutral-button:hover {
+    background-color: cornflowerblue;
+}
+
+button.neutral-button {
+    background-color: rgb(255, 255, 255);
+}
+
+.lower-buttons svg {
+    color: white;
+}

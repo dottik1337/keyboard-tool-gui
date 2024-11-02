@@ -1,0 +1,107 @@
+:root {
+    --key-color: rgb(252, 253, 194);
+    --key-dimentions: 50px;
+
+}
+
+
+
+.overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: hsla(0, 0%, 0%, 0.3);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-items: center;
+}
+
+.selectedkeys {
+    margin-top: 10px;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: var(--key-color);
+    padding: 20px;
+}
+
+.selectedkeys h1 {
+    margin: 0;
+}
+.selectedkeys p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.keyboard {
+    background: rgba(0, 0, 0, 0.5);
+    min-width: 782px;
+    max-height: 330px;
+    border-radius: 10px;
+}
+
+.randkeys {
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 782px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.row {
+    overflow: hidden;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    
+    width: var(--key-dimentions);;
+    height: var(--key-dimentions);;
+    background: var(--key-color);
+    float: left;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.key:hover {
+    filter:brightness(0.9);
+}
+
+.gap {
+    height: var(--key-dimentions);;
+    width: calc(var(--key-dimentions)*0.5 - 2.7px);
+    float: left;
+    margin: 2px;
+    cursor: default;
+}
+
+.keyAndHalf {
+    width: calc(var(--key-dimentions) * 1.5 );
+}
+
+.doubleKey {
+    width: calc(var(--key-dimentions) * 2 + 4px);
+}
+
+.doubleAndHalfKey {
+    width: calc(var(--key-dimentions) * 2.5 + 6px);
+}
+
+.space {
+    width: calc(var(--key-dimentions) * 6 + 2px);
+}
+

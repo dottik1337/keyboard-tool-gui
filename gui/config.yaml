@@ -1,0 +1,16 @@
+orientation: clockwise
+rows: 2
+columns: 3
+knobs: 1
+layers:
+  - buttons:
+      - - a
+        - ctrl-shift-d
+      - - x
+        - o
+      - - x
+        - x
+    knobs:
+      - ccw: wheelup
+        press: click
+        cw: wheeldown

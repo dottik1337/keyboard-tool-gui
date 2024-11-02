@@ -1,0 +1,55 @@
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+body {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #d1d1d1;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+:focus {
+  outline: none;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
+  gap: 20px;
+}
+
+div .keyboard {
+  display: grid;
+  grid-row: 1;
+  grid-template-columns: auto 300px;
+  grid-template-rows: auto 315px auto;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 10px;
+  width: 100%;
+  min-width: 300px;
+  margin: auto 0;
+}
+
+.bindable {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bindable.active {
+  border-color: cornflowerblue;
+  outline: 3px solid cornflowerblue;
+  outline-offset: -1px;
+}
