@@ -30,7 +30,6 @@ export default function PCKeyboardKeyboard() {
     useEffect(() => {
         
         const handleClickEvent = (event) => {
-            console.log('click');
             if(event.target.id === 'keyboardOverlay') {
                 keyboard.setIsKeyboardOpen(false);
             }

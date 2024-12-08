@@ -10,6 +10,7 @@ export class FileHandler {
 
     async readYamlFile(filePath) {
         try {
+            console.log(filePath);
             const file = await window.api.readFile(filePath);
             const data = yaml.load(file);
             return data;
@@ -173,5 +174,13 @@ export class FileHandler {
 
     uploadToKeyboard(){
         window.api.uploadToKeyboard(CONFIG_FILE);
+    }
+
+    changeConfigPath(path){
+        CONFIG_FILE = path;
+    }
+
+    getConfigPath(){
+        return CONFIG_FILE;
     }
 }

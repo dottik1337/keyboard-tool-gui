@@ -89,6 +89,11 @@
     margin: 0;
 }
 
+.current-selection h2 {
+    color: var(--button-neutral-hover);
+    font-style: italic;
+}
+
 .current-selection p {
     margin: 0;
 }

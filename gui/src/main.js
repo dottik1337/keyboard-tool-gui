@@ -1,7 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron');
 const path = require('node:path');
 const fs = require('fs').promises;
 const { exec } = require("child_process");
+const {mainMenu} = require('./menumaker.js');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -12,15 +13,18 @@ const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 700,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
-    autoHideMenuBar: true,
+    autoHideMenuBar: false, // Hide the menu bar
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+
+  // Set the main menu
+  Menu.setApplicationMenu(mainMenu);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
@@ -71,7 +75,8 @@ ipcMain.on("write-file", async (event, data) => {
 });
 
 ipcMain.handle("upload-to-keyboard", async (event, path) => {
-  exec(`ch57x-keyboard-tool upload ${path}`, (error, stdout, stderr) => {
+  
+  exec(`which ch57x-keyboard-tool`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       return false;
@@ -80,7 +85,31 @@ ipcMain.handle("upload-to-keyboard", async (event, path) => {
       console.error(`stderr: ${stderr}`);
       return false;
     }
-    console.log(`stdout: ${stdout}`);
-    return true;
+    tool = stdout.trimEnd();
+    exec(`sudo ${tool} upload ${path}`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return false;
+      }
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return false;
+      }
+      console.log(`stdout: ${stdout}`);
+      return true;
+    });
   });
 });
+
+ipcMain.handle("open-file-dialog", async (event) => {
+  let options = {
+    title: "Load Config File",
+    properties: ['openFile']
+  };
+  const file = await dialog.showOpenDialog(options);
+  if (file.canceled) {
+    return;
+  }
+  return file.filePaths[0];
+});
+

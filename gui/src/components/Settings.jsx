@@ -43,7 +43,7 @@ function MainSettings() {
     <div className="settings settings-main">
       <div className="current-selection">
         <h1>Current bind:</h1>
-        <p><span>{currBind ? currBind : 'None'}</span></p>
+        <p><span>{currBind ? currBind : ''}</span></p>
       </div>
 
       <button
