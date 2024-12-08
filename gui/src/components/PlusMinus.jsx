@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from "./css/PlusMinus.module.css";
 
+/**
+ * Component for plus minus buttons
+ */
 export default function PlusMinus(props) {
   const div_style = props.vertical ? styles.verticalDiv : styles.btndiv;
   return (

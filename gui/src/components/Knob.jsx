@@ -5,14 +5,12 @@ import { faArrowRotateLeft, faArrowRotateRight } from "@fortawesome/free-solid-s
 import { useContext } from 'react';
 import { KeyboardContext } from './App.jsx';
 
+/**
+ * Component for mini keyboard knob
+ * @param {clss} props 
+ * @returns Knob component
+ */
 export default function Knob(props) {
-  const style = {
-    color: '#555555',
-    width: '30px',
-    height: '30px',
-    backgroundColor: '#eeeeee',
-    borderRadius: '50%',
-  }
   const [keyboard, setKeyboard] = useContext(KeyboardContext);
 
   return (

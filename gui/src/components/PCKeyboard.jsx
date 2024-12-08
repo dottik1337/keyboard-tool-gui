@@ -6,32 +6,38 @@ import { KeyboardSettingsContext } from './Settings.jsx';
 
 export const clickContext = createContext();
 
+/**
+ * Virtual keyboard component
+ * @returns PCKeyboard component
+ */
 export default function PCKeyboardKeyboard() {
-    
     const keyboard = useContext(KeyboardSettingsContext);
+    // Function to handle clicking on a key
     const handleClick = (key) => {
         key = key.toLowerCase();
         if (key == 'esc') {
             key = 'escape';
         }
-        //check for modifiers
+        // Check for modifiers
         const keyList = keyboard.key.split('-');
         const modifiers = ['shift', 'ctrl', 'alt', 'win','rshift', 'rctrl', 'ralt', 'rwin' ];
-        if (keyList.length > 0 && modifiers.includes(keyList[keyList.length-1])
-            && !keyList.includes(key)) {
+        if (keyList.length > 0 && modifiers.includes(keyList[keyList.length-1])     // If last key is modifier
+            && !keyList.includes(key)) {                                            // And key is not already in the list                       
 
-            keyboard.setKey((k) => k + '-' +key);
+            keyboard.setKey((k) => k + '-' +key);                                   // Add key to the list
             return;
         }
+        // else
         keyboard.setKey(key);
         
     }
 
+    // useEffect hook to add event listener to close the keyboard when clicking outside of it
     useEffect(() => {
         
         const handleClickEvent = (event) => {
-            if(event.target.id === 'keyboardOverlay') {
-                keyboard.setIsKeyboardOpen(false);
+            if(event.target.id === 'keyboardOverlay') {      // If clicked on keyboard overlay (outside of keyboard keys)
+                keyboard.setIsKeyboardOpen(false);          // Close the keyboard
             }
         }
 

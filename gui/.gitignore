@@ -92,4 +92,4 @@ typings/
 out/
 
 #MY
-config.yaml
+*.yaml

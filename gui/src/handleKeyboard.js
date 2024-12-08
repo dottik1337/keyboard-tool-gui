@@ -1,5 +1,5 @@
 
-
+// Handles the key event and returns the key combination
 export function handleKeyEvent(event) {
   let combination = [];
 
@@ -18,6 +18,7 @@ export function handleKeyEvent(event) {
   return combination.join('-');
 }
 
+// Returns the key alias
 function getKeyAlias(event){
   const key = event.key.toLowerCase();
   const keyChar = event.keyCode;

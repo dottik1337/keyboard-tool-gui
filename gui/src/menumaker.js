@@ -2,9 +2,13 @@ const { app, Menu } = require('electron')
 const { openConfig, saveConfig } = require('./dialogs.js')
 const { exec } = require("child_process");
 
-const CONFIG_FILE = 'config.yaml';
-let currentConfig = CONFIG_FILE;
+const CONFIG_FILE = '.config.yaml';             // Default config file path
+let currentConfig = CONFIG_FILE;                // Current config file path
 
+/**
+ * Saves the config to file on path
+ * @param {string} path
+ */
 function saveConfigFile(path){
     currentConfig = path;
     exec(`cp -f ${CONFIG_FILE} ${currentConfig}`, (error, stdout, stderr) => {
@@ -20,6 +24,10 @@ function saveConfigFile(path){
     });
 }
 
+/**
+ * Loads the config file from path
+ * @param {string} path 
+ */
 function openConfigFile(path){
     currentConfig = path;
     exec(`cp -f ${currentConfig} ${CONFIG_FILE}`, (error, stdout, stderr) => {

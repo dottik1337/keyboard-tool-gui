@@ -27,12 +27,17 @@ const fh = new FileHandler();
 const SettingsWindowContext = createContext();
 export const KeyboardSettingsContext = createContext();
 
+/**
+ * Menu settings component
+ * @returns Main settings component
+ */
 function MainSettings() {
-  const [keyboard, setKeyboard] = useContext(KeyboardContext);
-  const [currBind, setCurrBind] = useState("");
+  const [keyboard, setKeyboard] = useContext(KeyboardContext);    
+  const [currBind, setCurrBind] = useState("");                   // Current bind for selected key
   const settingsContext = useContext(SettingsWindowContext);
   useEffect(() => {
     const fun = async () => {
+      // Get current bind for selected key
       const cb = await fh.getCurrBind(keyboard.selectedKey);
       setCurrBind(cb);
     };
@@ -61,19 +66,24 @@ function MainSettings() {
   );
 }
 
+/**
+ * Confirm and back buttons for settings
+ */
 function LowerSettingsButtons(props) {
   const settingsContext = useContext(SettingsWindowContext);
   const [keyboard, setKeyboard] = useContext(KeyboardContext);
   const [isDisabled, setIsDisabled] = useState(true);
 
+  /**
+   * Handles commiting bind value to selected key
+   */
   const handleCommit = async() => {
-
-    await fh.changeBind(keyboard.selectedKey, props.bindValue);
-    settingsContext.setSettingWindow(<MainSettings />);
+    await fh.changeBind(keyboard.selectedKey, props.bindValue);   // Change bind value for selected key in config file
+    settingsContext.setSettingWindow(<MainSettings />);           // Set main settings window
   };
   
   useEffect(() => {
-    setIsDisabled(props.bindValue === "" ? true : false);
+    setIsDisabled(props.bindValue === "" ? true : false);     // Disable confirm button if bind value is empty
   }, [props.bindValue]);
   
   return (
@@ -88,17 +98,22 @@ function LowerSettingsButtons(props) {
   );
 }
 
+/**
+ * Keyboard settings component
+ * @returns Keyboard settings component
+ */
 function KeyboardSettings() {
   const [key, setKey] = useState('');
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
   
   useEffect(() => {
+    // Handle key press event
     const handleKeyPress = (event) => {
-      let combination = handleKeyEvent(event);
-      setKey(combination);
+      let combination = handleKeyEvent(event);  // Get key combination
+      setKey(combination);                      // Set key combination
     };
 
-    window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);     // Listen for keydown event
 
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
@@ -127,6 +142,10 @@ function KeyboardSettings() {
   );
 }
 
+/**
+ * Mouse settings component
+ * @returns Mouse settings component
+ */
 function MouseSettings() {
   const [key, setKey] = useState('');
 
@@ -150,6 +169,10 @@ function MouseSettings() {
   );
 }
 
+/**
+ * Media settings component
+ * @returns Media settings component
+ */
 function MediaSettings() {
   const [key, setKey] = useState('');
 
@@ -176,7 +199,12 @@ function MediaSettings() {
   );
 }
 
+/**
+ * Component for settings on rihgt side of the screen
+ * @returns Settings component
+ */
 export default function Settings() {
+  // Component that is currently displayed in settings window
   const [settingWindow, setSettingWindow] = useState(<MainSettings />);
 
   return (

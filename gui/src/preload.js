@@ -6,7 +6,6 @@ const API = {
     readFile: (path) => ipcRenderer.invoke('read-file', path),
     writeFile: (data) => ipcRenderer.send('write-file', data),
     uploadToKeyboard: (path) => ipcRenderer.invoke('upload-to-keyboard', path),
-    openFileDialog: () => ipcRenderer.invoke('open-file-dialog'),
 }
 
 contextBridge.exposeInMainWorld('api', API);

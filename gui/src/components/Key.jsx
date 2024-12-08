@@ -3,6 +3,11 @@ import styles from "./css/Key.module.css";
 import { useContext } from 'react';
 import { KeyboardContext } from './App.jsx';
 
+/**
+ * Component for mini keyboard key inside keyboard
+ * @param {class} props 
+ * @returns Key component
+ */
 export default function Key(props) {
   const [keyboard, setKeyboard] = useContext(KeyboardContext);
   return (

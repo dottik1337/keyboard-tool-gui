@@ -3,7 +3,9 @@ import styles from './css/PCKeyboard.module.css';
 import { useContext } from 'react';
 import { clickContext } from './PCKeyboard.jsx';
 
-
+/**
+ * Component for virtual keyboard key
+ */
 export function KeyboardKey({children}) {
     const handleClick = useContext(clickContext);
     return (
@@ -13,6 +15,9 @@ export function KeyboardKey({children}) {
   )
 }
 
+/**
+ * Component for bigger virtual keyboard key
+ */
 export function KeyAndHalf({children}) {
     const handleClick = useContext(clickContext);
     return (
@@ -22,6 +27,9 @@ export function KeyAndHalf({children}) {
     )
 }
 
+/**
+ * Component for double virtual keyboard key
+ */
 export function DoubleKey({children}) {
   const handleClick = useContext(clickContext);
     return (
@@ -31,6 +39,9 @@ export function DoubleKey({children}) {
     )
 }
 
+/**
+ * Component for extra big virtual keyboard key
+ */
 export function DoubleAndHalfKey({children}) {
   const handleClick = useContext(clickContext);
     return (
@@ -40,6 +51,9 @@ export function DoubleAndHalfKey({children}) {
     )
 }
 
+/**
+ * Compontnt for space key
+ */
 export function Space() {
   const handleClick = useContext(clickContext);
     return (

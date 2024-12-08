@@ -27,7 +27,7 @@ const createWindow = () => {
   Menu.setApplicationMenu(mainMenu);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -54,9 +54,7 @@ app.on('window-all-closed', () => {
   }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
-
+// Reads file from path
 ipcMain.handle("read-file", async (event, path) => {
   try {
     const fileContents = await fs.readFile(path, 'utf8');
@@ -66,6 +64,7 @@ ipcMain.handle("read-file", async (event, path) => {
   }
 });
 
+// Writes data to file
 ipcMain.on("write-file", async (event, data) => {
   try {
     await fs.writeFile(data.path, data.data);
@@ -74,6 +73,7 @@ ipcMain.on("write-file", async (event, data) => {
   }
 });
 
+// Uploads the config file to the keyboard
 ipcMain.handle("upload-to-keyboard", async (event, path) => {
   
   exec(`which ch57x-keyboard-tool`, (error, stdout, stderr) => {
@@ -99,17 +99,5 @@ ipcMain.handle("upload-to-keyboard", async (event, path) => {
       return true;
     });
   });
-});
-
-ipcMain.handle("open-file-dialog", async (event) => {
-  let options = {
-    title: "Load Config File",
-    properties: ['openFile']
-  };
-  const file = await dialog.showOpenDialog(options);
-  if (file.canceled) {
-    return;
-  }
-  return file.filePaths[0];
 });
 

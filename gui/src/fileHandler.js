@@ -1,13 +1,14 @@
 import yaml from 'js-yaml';
 
 
-const DEFAULT_BUTTON = 'x';
-const CONFIG_FILE = 'config.yaml';
+const DEFAULT_BUTTON = 'x';                 // Default button bind
+const CONFIG_FILE = '.config.yaml';         // Default config file path
 
 export class FileHandler {
     constructor() {
     }
 
+    // Read a yaml file
     async readYamlFile(filePath) {
         try {
             console.log(filePath);
@@ -19,6 +20,7 @@ export class FileHandler {
         }
     }
 
+    // Write a yaml file
     async writeYamlFile(filePath, data) {
         try {
             const yamlDataStr = yaml.dump(data);
@@ -28,6 +30,7 @@ export class FileHandler {
         }
     }
 
+    // Get the current bind of a key from config file
     async getCurrBind(key){
         if (key === null){
             return;
@@ -55,6 +58,7 @@ export class FileHandler {
         }
     }
 
+    // Change the bind of a key in config file
     async changeBind(key, bind){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -79,6 +83,7 @@ export class FileHandler {
         }
     }
 
+    // Adds row to the config file
     async addRow(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -95,6 +100,7 @@ export class FileHandler {
         }
     }
 
+    // Removes row from the config file
     async removeRow(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -107,6 +113,7 @@ export class FileHandler {
         }
     }
 
+    // Adds column to the config file
     async addColumn(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -121,6 +128,7 @@ export class FileHandler {
         }
     }
 
+    // Removes column from the config file
     async removeColumn(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -135,6 +143,7 @@ export class FileHandler {
         }
     }
 
+    // Adds knob to the config file
     async addKnob(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -147,6 +156,7 @@ export class FileHandler {
         }
     }
 
+    // Removes knob from the config file
     async removeKnob(){
         try {
             let data = await this.readYamlFile(CONFIG_FILE);
@@ -159,6 +169,7 @@ export class FileHandler {
         }
     }
 
+    // Get the initial state of the config file
     async getInitState(){
         try {
             const data = await this.readYamlFile(CONFIG_FILE);
@@ -172,15 +183,8 @@ export class FileHandler {
         }
     }
 
+    // Upload the config file to the keyboard
     uploadToKeyboard(){
         window.api.uploadToKeyboard(CONFIG_FILE);
-    }
-
-    changeConfigPath(path){
-        CONFIG_FILE = path;
-    }
-
-    getConfigPath(){
-        return CONFIG_FILE;
     }
 }
