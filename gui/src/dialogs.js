@@ -1,3 +1,7 @@
+/**
+ * @file dialogs.js
+ * @author Jozef Gallo <xgallo06>
+ */
 const { dialog } = require('electron');
 const os = require('os');
 

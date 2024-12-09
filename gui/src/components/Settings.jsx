@@ -1,3 +1,7 @@
+/**
+ * @file Settings.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import React from "react";
 import { useContext, createContext, useEffect, useState } from "react";
 import { createPortal } from "react-dom";

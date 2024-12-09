@@ -1,3 +1,7 @@
+/**
+ * @file KeyboardKey.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import React from 'react'
 import styles from './css/PCKeyboard.module.css';
 import { useContext } from 'react';

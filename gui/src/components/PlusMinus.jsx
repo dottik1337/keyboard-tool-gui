@@ -1,3 +1,7 @@
+/**
+ * @file PlusMinus.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import React from 'react'
 import styles from "./css/PlusMinus.module.css";
 

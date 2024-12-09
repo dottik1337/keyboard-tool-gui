@@ -1,3 +1,7 @@
+/**
+ * @file menumaker.js
+ * @author Jozef Gallo <xgallo06>
+ */
 const { app, Menu } = require('electron')
 const { openConfig, saveConfig } = require('./dialogs.js')
 const { exec } = require("child_process");

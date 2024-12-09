@@ -1,3 +1,7 @@
+/**
+ * @file App.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import React from 'react'
 import { createContext, useState, useEffect } from 'react';
 import Keyboard from './Keyboard.jsx';

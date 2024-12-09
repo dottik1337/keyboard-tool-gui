@@ -1,3 +1,7 @@
+/**
+ * @file 
+ * @authors autmaticaly generated + Jozef Gallo <xgallo06>
+ */
 const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron');
 const path = require('node:path');
 const fs = require('fs').promises;

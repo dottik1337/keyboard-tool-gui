@@ -1,4 +1,7 @@
-
+/**
+ * @file handleKeyboard.js
+ * @author Jozef Gallo <xgallo06>
+ */
 // Handles the key event and returns the key combination
 export function handleKeyEvent(event) {
   let combination = [];

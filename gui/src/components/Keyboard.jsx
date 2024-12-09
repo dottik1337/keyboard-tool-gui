@@ -1,3 +1,8 @@
+/**
+ * @file Keyboard.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
+
 import React from 'react'
 import Key from './Key.jsx';
 import PlusMinus from './PlusMinus.jsx';

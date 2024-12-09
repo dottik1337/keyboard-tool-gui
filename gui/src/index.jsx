@@ -1,3 +1,7 @@
+/**
+ * @file index.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/App.jsx';

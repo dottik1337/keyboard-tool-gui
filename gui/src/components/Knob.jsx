@@ -1,3 +1,7 @@
+/**
+ * @file Knob.jsx
+ * @author Jozef Gallo <xgallo06>
+ */
 import React from 'react'
 import styles from "./css/Knob.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

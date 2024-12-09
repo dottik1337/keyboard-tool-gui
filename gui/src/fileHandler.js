@@ -1,3 +1,7 @@
+/**
+ * @file fileHandler.js
+ * @author Jozef Gallo <xgallo06>
+ */
 import yaml from 'js-yaml';
 
 
